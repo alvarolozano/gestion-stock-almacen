@@ -1,6 +1,5 @@
-import { defineConfig } from 'drizzle-kit';
-
-export const _DB_URL= (process.env.DATABASE_LOCATION ?? 'file:data.db');
+import {defineConfig} from 'drizzle-kit';
+export const _DB_URL= (process.env.DATABASE_LOCATION ?? `file:${process.cwd()}/data.db`);
 
 export default defineConfig({
     out: './drizzle',
