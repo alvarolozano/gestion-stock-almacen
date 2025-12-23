@@ -1,36 +1,46 @@
-import {progressEventEmitter} from "./EventEmitter.js";
 import {filterPrereparto} from "../filters/filters.js";
 import {PrerepartoBrutoRAW} from "../types/PrerepartoBruto.js";
-import { Readable } from "node:stream";
+import {Readable} from "node:stream";
 import {chain} from "stream-chain";
 import {parser} from "stream-json";
 import {streamArray} from "stream-json/streamers/StreamArray.js";
 import {pick} from "stream-json/filters/Pick.js";
+import {db, inArray, stockUnificado} from "@repo/db";
 
 
-export default function processPrerepartoBruto(stream: Readable) {
+export default function processPrerepartoBruto(stream: Readable): Promise<void> {
 
-    let count = 0;
-    const pipeline = chain([stream, parser(), pick({ filter: 'data' }), streamArray()]);
+    return new Promise<void>((resolve, reject) => {
 
-    const jobId = '1';
+        let count = 0;
+        const pipeline = chain([stream, parser(), pick({ filter: 'data' }), streamArray()]);
+        const jobId = '1';
 
-    stream.on('data', async ({ value }: {value: PrerepartoBrutoRAW}) => {
-        if (filterPrereparto(value)) {
-            count++;
-            console.log(value);
+        const BATCH_SIZE = 100;
+        let readBatch: PrerepartoBrutoRAW[] = [];
 
-            if (count % 100 === 0) {
-                progressEventEmitter.emit(`progress-${jobId}`, {
-                    status: 'processing',
-                    processed: count
-                });
+        const stockSize = new Map<string, string>();
+
+        pipeline.on('data', async ({ value }: {value: PrerepartoBrutoRAW}) => {
+
+            if (filterPrereparto(value)) {
+                readBatch.push(value);
+                count++;
             }
-        }
-    });
 
-    stream.on('end', () => {
-        progressEventEmitter.emit(`progress-${jobId}`, { status: 'done'});
-    });
+            if(readBatch.length >= BATCH_SIZE) {
+                stream.pause();
+                const res = await db
+                        .select()
+                        .from(stockUnificado)
+                        .where(inArray(stockUnificado.key, readBatch.map(e => e.key)));
 
+                console.log(res.length);
+            }
+        });
+
+        pipeline.on('end', () => {
+            resolve();
+        });
+    });
 }

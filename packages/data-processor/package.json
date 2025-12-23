@@ -9,7 +9,6 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "drizzle-kit": "0.31.8",
     "tsx": "4.21.0",
     "typescript": "latest",
     "vitest": "latest",
@@ -17,7 +16,7 @@
   },
   "dependencies": {
     "@libsql/client": "0.15.15",
-    "drizzle-orm": "0.45.1",
+    "@repo/db": "workspace:*",
     "stream-chain": "3.4.0",
     "stream-json": "1.9.1"
   }
