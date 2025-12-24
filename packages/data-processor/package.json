@@ -1,0 +1,30 @@
+{
+  "name": "@repo/data-processor",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest --watch"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/stream-json": "1.7.8",
+    "@vitest/coverage-v8": "^4.0.16",
+    "tsx": "4.21.0",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "dependencies": {
+    "@libsql/client": "0.15.15",
+    "@repo/db": "workspace:*",
+    "stream-chain": "3.4.0",
+    "stream-json": "1.9.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/types/index.ts",
+      "import": "./src/processor/index.ts"
+    }
+  }
+}

@@ -16,6 +16,25 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "db:push": {
+      "cache": false,
+      "persistent": false
+    },
+    "db:ui": {
+      "cache": false,
+      "persistent": true
+    },
+    "process": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

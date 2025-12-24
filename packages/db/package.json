@@ -1,0 +1,24 @@
+{
+  "name": "@repo/db",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "db:push": "drizzle-kit push",
+    "db:ui": "drizzle-kit studio"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.15.3",
+    "drizzle-kit": "0.31.8",
+    "tsx": "4.21.0",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@libsql/client": "0.15.15",
+    "drizzle-orm": "0.45.1"
+  }
+}
