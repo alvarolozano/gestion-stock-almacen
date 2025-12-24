@@ -9,10 +9,11 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@types/stream-json": "1.7.8",
+    "@vitest/coverage-v8": "^4.0.16",
     "tsx": "4.21.0",
     "typescript": "latest",
-    "vitest": "latest",
-    "@types/stream-json": "1.7.8"
+    "vitest": "latest"
   },
   "dependencies": {
     "@libsql/client": "0.15.15",

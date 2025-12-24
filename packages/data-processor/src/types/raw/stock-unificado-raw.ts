@@ -34,7 +34,9 @@ export enum CampanaDesc {
 }
 
 export enum TipoStockDesc {
-    Msr = "MSR",
+    MSR = "MSR",
+    ZAR = "ZAR",
+    SILO = "SILO"
 }
 
 export enum Zona {
@@ -56,4 +58,3 @@ export enum Zona {
     RackB1 = "RACK_B1",
 }
 
-export type StockUnificado = Pick<StockUnificadoRAW, 'key' | 'tipoStockDesc' | 'stockEm05' | 'stockEm01' | 'posicioncompleta'>;

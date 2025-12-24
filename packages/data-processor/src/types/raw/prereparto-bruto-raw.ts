@@ -52,7 +52,7 @@ export interface PrerepartoBrutoRAW {
     campanaIdDb2: number;
     datetimeIngestionMsr: IngestionMsr;
     grupoLocalizacionId: number;
-    esEcommerce: number;
+    esEcommerce: EsEcommerce;
     datetimeIngestionRepartoMsr: IngestionRepartoMsr;
     bolsaId: number;
     msrDelayCargaMinutos: number;
@@ -64,6 +64,11 @@ export interface PrerepartoBrutoRAW {
 export enum CampanaDesc {
     I2023 = "I2023",
     V2024 = "V2024",
+}
+
+export enum EsEcommerce {
+    ECOMMERCE = 1,
+    FISICO = 0
 }
 
 export enum IngestionMsr {
@@ -86,8 +91,5 @@ export enum GrupoLocalizacionDesc {
     Ciclo2GrupoA2 = "CICLO 2 GRUPO A2",
     Ciclo2GrupoB = "CICLO 2 GRUPO B",
 }
-
-
-export type PrerepartoBruto = Pick<PrerepartoBrutoRAW, 'key' | 'propuesta' | 'tiendaId' | 'grupoLocalizacionDesc' | 'esEcommerce'>;
 
 
