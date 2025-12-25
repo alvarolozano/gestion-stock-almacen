@@ -22,9 +22,7 @@
     "stream-json": "1.9.1"
   },
   "exports": {
-    ".": {
-      "types": "./src/types/index.ts",
-      "import": "./src/processor/index.ts"
-    }
+    ".": "./src/processor/index.ts",
+    "./types": "./src/types/index.ts"
   }
 }

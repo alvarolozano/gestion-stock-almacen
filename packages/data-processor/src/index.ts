@@ -1,7 +1,7 @@
 import {EsEcommerce, GrupoLocalizacionDesc} from "./types/raw/prereparto-bruto-raw";
 import {TipoStockDesc} from "./types/raw/stock-unificado-raw";
-import {TipoEstadoStock} from "./types/reparto-procesado";
 import {ColumnaEstadoStock} from "./types/stock-unificado";
+import {processJSON} from "./processor";
 
 
 /**
@@ -27,3 +27,6 @@ export const PRIORIDAD_ESTADO_PEDIDO: Record<EsEcommerce, ColumnaEstadoStock[]> 
     [EsEcommerce.FISICO]: ["stockEm01"],
     [EsEcommerce.ECOMMERCE]: ["stockEm05", "stockEm01"]
 }
+
+
+export {processJSON}
