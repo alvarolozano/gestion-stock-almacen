@@ -1,3 +1,16 @@
+# Proyecto Stock almacén
+> Documentación disponible en el [NOTION DEL PROYECTO](https://www.notion.so/Prueba-T-cnica-Between-2ce8404f1d2c8087933af8535040c07f)
+
+> Versión desplegada en https://gestion-stock-almacen-qzj9qipmh-alvarolozanos-projects.vercel.app
+
+
+# Para ejecutarse en desarrrollo debe:
+
+* Clonarse el repositorio
+* Instalar dependencias usando ``pnpm install`` en la raíz
+* Ejecutar ``pnpm run dev``
+* Acceder a la web http://localhost:3000
+
 # Turborepo starter
 
 This Turborepo starter is maintained by the Turborepo core team.
