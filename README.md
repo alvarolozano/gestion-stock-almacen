@@ -1,8 +1,7 @@
 # Proyecto Stock almacén
 > Documentación disponible en el [NOTION DEL PROYECTO](https://www.notion.so/Prueba-T-cnica-Between-2ce8404f1d2c8087933af8535040c07f)
 
-> Versión desplegada en https://gestion-stock-almacen-qzj9qipmh-alvarolozanos-projects.vercel.app
-
+> Versión desplegada en https://gestion-stock-almacen-web.vercel.app
 
 # Para ejecutarse en desarrrollo debe:
 
