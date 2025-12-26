@@ -14,7 +14,6 @@ import {
 import {ClipboardList, Filter, Search} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
-import {Badge} from "@/components/ui/badge";
 import {Input} from "@/components/ui/input";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import EstadoStockFilter from "@/components/dashboard/table/estado-stock-filter";
@@ -51,9 +50,6 @@ export function RepartoTable() {
                             <ClipboardList className="size-4 sm:size-[18px] text-muted-foreground" />
                         </Button>
                         <span className="text-sm sm:text-base font-medium">Pedidos</span>
-                        <Badge className="ml-1 text-[10px] sm:text-xs">
-                            {table.getRowCount()}
-                        </Badge>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2">
@@ -75,6 +71,7 @@ export function RepartoTable() {
                             <Button
                                 variant="outline"
                                 size="sm"
+                                data-testid={"filter-dropdown-trigger"}
                                 className={`h-8 sm:h-9 gap-1.5 sm:gap-2 ${columnFilters.filter(fil => fil.id !== 'key').length ? "border-primary" : ""}`}
                             >
                                 <Filter className="size-3.5 sm:size-4" />
@@ -99,7 +96,7 @@ export function RepartoTable() {
                                         <TableRow key={headerGroup.id}>
                                             {headerGroup.headers.map((header) => {
                                                 return (
-                                                    <TableHead key={header.id}>
+                                                    <TableHead key={header.id} data-testid="table-head">
                                                         {header.isPlaceholder
                                                             ? null
                                                             : flexRender(
@@ -119,16 +116,17 @@ export function RepartoTable() {
                                     <TableCell
                                         colSpan={8}
                                         className="h-24 text-center text-muted-foreground text-sm"
+                                        data-testid="table-empty"
                                     >
                                         No hay pedidos disponibles.
                                     </TableCell>
                                 </TableRow>
                             ) : (
                                 table.getRowModel().rows.map((row) => (
-                                    <TableRow key={row.id}>
+                                    <TableRow key={row.id} data-testid={'tablerow'}>
                                         {
                                             row.getVisibleCells().map(cell => (
-                                            <TableCell key={cell.id}>
+                                            <TableCell key={cell.id} data-testid={`row:${row.index}:${cell.column.id}`}>
                                                 {
                                                     flexRender(
                                                         cell.column.columnDef.cell,

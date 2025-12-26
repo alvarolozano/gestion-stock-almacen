@@ -3,7 +3,7 @@ import {RepartoProcesado, TipoEstadoStock} from "@repo/data-processor/types";
 import {Badge} from "@/components/ui/badge";
 import {cn} from "@/lib/utils";
 
-const ESTADO_STOCK_LABELS: Record<RepartoProcesado["estadoStock"], { label: string, className?: string}> = {
+export const ESTADO_STOCK_LABELS: Record<RepartoProcesado["estadoStock"], { label: string, className?: string}> = {
     "1": {
         label: 'físico',
     },
@@ -37,9 +37,9 @@ export const columns: ColumnDef<RepartoProcesado>[] = [
     },
     {
         accessorKey: "tipoStockDesc",
-        header: "Zona",
+        header: "Tipo Stock",
         cell: ({ row }) => (
-            <div className="capitalize">{row.getValue("propuesta")}</div>
+            <div className="capitalize">{row.getValue("tipoStockDesc")}</div>
         ),
     },
     {
