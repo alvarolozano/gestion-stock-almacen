@@ -1,9 +1,8 @@
 import {expect, test} from "vitest";
 import {generarMockAlmacen} from "../../mocks/almacen.mock";
-import {generarPedidoBase, generarPedidoCustom} from "../../mocks/pedido.mock";
+import {generarPedidoCustom} from "../../mocks/pedido.mock";
 import {repartirUnidadesPedido} from "../stock-processor";
-import {TipoEstadoStock} from "../../types/reparto-procesado";
-import {TipoStockDesc} from "../../types/raw/stock-unificado-raw";
+import {TipoEstadoStock} from "../../types";
 
 
 const ID_PRODUCTO_PRUEBA = "PRUEBA";

@@ -1,4 +1,4 @@
-import {index, int, sqliteTable, text} from "drizzle-orm/sqlite-core";
+import {int, sqliteTable, text} from "drizzle-orm/sqlite-core";
 
 
 export const repartoProcesado = sqliteTable("reparto_procesado", {
