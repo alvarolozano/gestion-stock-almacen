@@ -1,9 +1,8 @@
 import {filterUnidadesStock} from "../filters/filters";
-import {RepartoProcesado, TipoEstadoStock} from "../types/reparto-procesado";
+import {RepartoProcesado} from "../types/reparto-procesado";
 import {PrerepartoBruto} from "../types/prereparto-bruto";
 import {ColumnaEstadoStock, StockUnificado} from "../types/stock-unificado";
 import {PRIORIDAD_ESTADO_PEDIDO} from "../index";
-import {EsEcommerce} from "../types/raw/prereparto-bruto-raw";
 
 export function procesarPedidos(pedidos: PrerepartoBruto[], stock: StockUnificado[]) {
      return pedidos

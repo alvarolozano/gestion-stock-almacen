@@ -1,7 +1,6 @@
 import {CICLOS_WHITELIST, ZONAS_PRIORIDAD} from "../index";
-import {TipoStockDesc} from "../types/raw/stock-unificado-raw";
-import {PrerepartoBruto} from "../types/prereparto-bruto";
-import {StockUnificado} from "../types/stock-unificado";
+import {PrerepartoBruto} from "../types";
+import {StockUnificado} from "../types";
 
 /**
  * Filtro las propuestas de pre-reparto (ecommerce y ciclos determinados).

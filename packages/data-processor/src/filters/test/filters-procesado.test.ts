@@ -2,7 +2,6 @@ import {expect, suite, test} from "vitest";
 import {generarMockAlmacen} from "../../mocks/almacen.mock";
 import {TipoStockDesc} from "../../types/raw/stock-unificado-raw";
 import {filterUnidadesStock} from "../filters";
-import {GrupoLocalizacionDesc} from "../../types/raw/prereparto-bruto-raw";
 import {generarPedidoCustom} from "../../mocks/pedido.mock";
 
 

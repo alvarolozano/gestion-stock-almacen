@@ -1,9 +1,9 @@
-import {expect, it, suite, test} from 'vitest'
+import {expect, it, suite} from 'vitest'
 import {GrupoLocalizacionDesc} from "../../types/raw/prereparto-bruto-raw";
 import {filterPrereparto} from "../filters";
-import {PrerepartoBruto} from "../../types/prereparto-bruto";
+import {PrerepartoBruto} from "../../types";
 
-    const preRepartoEcommerceMock: Partial<PrerepartoBruto> = {
+const preRepartoEcommerceMock: Partial<PrerepartoBruto> = {
         grupoLocalizacionDesc: GrupoLocalizacionDesc.Ciclo1GrupoA2
     }
 
